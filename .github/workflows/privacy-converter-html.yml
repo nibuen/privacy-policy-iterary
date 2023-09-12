@@ -19,7 +19,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: convert document
-        uses: jaywcjlove/markdown-to-html-cli@v3.8.0
+        uses: actions/checkout@v3, jaywcjlove/markdown-to-html-cli@v3.8.0
         with:
           source: privacy-policy.md
           output: privacy/privacy-policy.html
