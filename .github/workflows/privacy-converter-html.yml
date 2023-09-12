@@ -1,0 +1,29 @@
+
+# You may pin to the exact commit or the version.
+# uses: jaywcjlove/markdown-to-html-cli@dd967662949717c7ed6077bd0644bfb7d955216c
+name: Converts privacy to HTML
+
+on:
+  push:
+    # branches to consider in the event; optional, defaults to all
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write    
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: convert document
+        uses: jaywcjlove/markdown-to-html-cli@v3.8.0
+        with:
+          source: privacy-policy.md
+          output: privacy/privacy-policy.html
+          github-corners: https://github.com/jaywcjlove/markdown-to-html-cli
+          favicon: data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>
+            
+    
